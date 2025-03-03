@@ -100,18 +100,25 @@ function placeInBin() {
   }
   
   const weiner = document.getElementById("weiner")
-
+  const winnerAudio = new Audio("wow.mp3")
   function winner() {
+    pauseResetAudio(zeldaAudio)
+    winnerAudio.play()
     weiner.style.opacity = "100%"
   }
 
   const losera = document.getElementById("loser")
-
+  const loserAudio = new Audio("sad.mp3")
     function loser(){
+        pauseResetAudio(zeldaAudio)
+        loserAudio.play()
         losera.style.opacity = "100%"
 }
 
-  
+function pauseResetAudio(sound){
+  sound.pause()
+  sound.currentTime = 0
+} 
 
 
 // createPegs();
@@ -129,7 +136,7 @@ function placeInBin() {
   const yesCheck = document.getElementById("yesCheck")
   const submit = document.getElementById("submit")
   const head = document.getElementById("head")
-
+  const zeldaAudio = new Audio("zelda.mp3")
   var yesSelected = null
 
     noBox.addEventListener('mouseover', () => {
@@ -175,6 +182,7 @@ function placeInBin() {
         if(yesSelected === null){
             alert("Pick Something")
         }else{
+            zeldaAudio.play()
             head.style.display = "none"
             plinko.style.display = "block"
             if (!isGameActive) {
